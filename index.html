@@ -39,9 +39,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(0,61,41,.95)
 .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 70% 50%,rgba(74,222,128,.12) 0%,transparent 60%)}
 .hero-inner{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;width:100%}
 .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:var(--rp);padding:7px 16px;font-size:12px;font-weight:700;color:var(--accent);margin-bottom:22px;letter-spacing:.04em}
-.hero h1{font-size:clamp(36px,5vw,56px);font-weight:900;color:#fff;line-height:1.1;margin-bottom:18px;letter-spacing:-.03em}
+.hero h1{font-size:clamp(40px,5.5vw,64px);font-weight:900;color:#fff;line-height:1.05;margin-bottom:18px;letter-spacing:-.04em}
 .hero h1 span{color:var(--accent)}
-.hero-sub{font-size:16px;color:rgba(255,255,255,.72);line-height:1.65;margin-bottom:32px;max-width:440px}
+.hero-sub{font-size:15px;color:rgba(255,255,255,.75);line-height:1.7;margin-bottom:32px;max-width:400px;font-weight:400}
 .hero-btns{display:flex;flex-direction:column;gap:10px;max-width:340px}
 .btn-hero-p{background:#fff;color:var(--dark);border:none;border-radius:var(--rp);padding:16px 28px;font-size:15px;font-weight:900;cursor:pointer;text-decoration:none;display:inline-block;text-align:center;box-shadow:0 8px 32px rgba(0,0,0,.25);transition:.2s;letter-spacing:-.01em}
 .btn-hero-p:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(0,0,0,.3)}
@@ -50,9 +50,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(0,61,41,.95)
 
 /* PHONE MOCKUP */
 .phone-wrap{display:flex;justify-content:center;align-items:center;position:relative}
-.phone{width:260px;height:520px;background:#f1f5f3;border-radius:40px;border:10px solid #1a1a1a;box-shadow:0 40px 80px rgba(0,0,0,.5),0 0 0 1px rgba(255,255,255,.1);overflow:hidden;position:relative;flex-shrink:0;text-align:left}
+.phone{width:270px;height:540px;background:#f1f5f3;border-radius:44px;border:8px solid #111;box-shadow:0 50px 100px rgba(0,0,0,.55),0 20px 40px rgba(0,0,0,.3),0 0 0 1px rgba(255,255,255,.12);overflow:hidden;position:relative;flex-shrink:0;text-align:left}
 .phone-notch{width:90px;height:26px;background:#1a1a1a;border-radius:0 0 18px 18px;margin:0 auto;position:absolute;top:0;left:50%;transform:translateX(-50%);z-index:2}
-.phone-header{background:linear-gradient(135deg,#00875A,#006644);padding:36px 12px 10px;display:flex;align-items:center;gap:8px}
+.phone-header{background:linear-gradient(135deg,#00875A,#006644);padding:40px 14px 12px;display:flex;align-items:center;gap:8px}
 .phone-logo-text{font-size:13px;font-weight:900;color:#fff;letter-spacing:-.02em}
 .phone-logo-text span{opacity:.8;font-weight:500}
 .phone-bell{margin-left:auto;font-size:16px}
@@ -68,7 +68,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(0,61,41,.95)
 .phone-pac-border{width:3px;height:32px;border-radius:2px;flex-shrink:0}
 .phone-av{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;flex-shrink:0}
 .phone-pac-info{flex:1;min-width:0;text-align:left}
-.phone-pac-name{font-size:10px;font-weight:700;color:#0A1628;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.phone-pac-name{font-size:11px;font-weight:700;color:#0A1628;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .phone-pac-next{font-size:8px;color:#6B7280}
 .phone-badge{font-size:7px;font-weight:700;padding:2px 5px;border-radius:10px;white-space:nowrap;flex-shrink:0}
 .phone-nav{position:absolute;bottom:0;left:0;right:0;background:rgba(255,255,255,.95);border-top:1px solid rgba(0,0,0,.06);display:flex;padding:8px 0 12px}
@@ -242,9 +242,9 @@ footer{background:#001f14;padding:40px 24px}
           </div>
         </div>
         <div class="phone-nav">
-          <div class="phone-nb"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>Início</div>
+          <div class="phone-nb on"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>Início</div>
           <div class="phone-nb"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Agenda</div>
-          <div class="phone-nb on"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>Pacientes</div>
+          <div class="phone-nb"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>Pacientes</div>
           <div class="phone-nb"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>Evoluções</div>
           <div class="phone-nb"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg>Mais</div>
         </div>
