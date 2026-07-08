@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="description" content="FisioEvolução — App de gestão clínica para fisioterapeutas autônomos. Agenda, prontuário eletrônico, controle financeiro e relatórios. Experimente grátis por 30 dias."/>
+<meta name="keywords" content="app fisioterapia, gestão clínica fisioterapeuta, prontuário eletrônico fisio, software fisioterapia, agenda fisioterapeuta"/>
+<meta property="og:title" content="FisioEvolução — Gestão clínica para fisioterapeutas"/>
+<meta property="og:description" content="Agenda, prontuário, financeiro e relatórios. Tudo num app por R$14,90/mês."/>
+<meta property="og:type" content="website"/>
+<title>FisioEvolução — Gestão clínica para fisioterapeutas autônomos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --g1:#00875A;--g2:#006644;--g3:#E6FAF3;--g4:#F0FBF6;
+  --dark:#003D29;--accent:#4ADE80;
+  --sl:#0A1628;--sl2:#374151;--sl3:#6B7280;
+  --white:#fff;
+  --r:14px;--rp:100px;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;color:var(--sl);background:#fff;-webkit-font-smoothing:antialiased}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(0,61,41,.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.08)}
+.nav-inner{max-width:1080px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-size:20px;font-weight:900;color:#fff;text-decoration:none;letter-spacing:-.02em}
+.nav-logo span{color:var(--accent)}
+.nav-links{display:flex;align-items:center;gap:8px}
+.nav-link{color:rgba(255,255,255,.7);text-decoration:none;font-size:13px;font-weight:600;padding:6px 14px;border-radius:var(--rp);transition:.2s}
+.nav-link:hover{color:#fff;background:rgba(255,255,255,.1)}
+.nav-cta{background:var(--accent);color:var(--dark);font-size:13px;font-weight:800;padding:8px 18px;border-radius:var(--rp);text-decoration:none;transition:.2s}
+.nav-cta:hover{background:#22c55e;transform:translateY(-1px)}
+
+/* HERO */
+.hero{background:linear-gradient(145deg,#003322 0%,#004d30 40%,#00875A 75%,#10B981 100%);min-height:100vh;display:flex;align-items:center;padding:100px 24px 60px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 70% 50%,rgba(74,222,128,.12) 0%,transparent 60%)}
+.hero-inner{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;width:100%}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:var(--rp);padding:7px 16px;font-size:12px;font-weight:700;color:var(--accent);margin-bottom:22px;letter-spacing:.04em}
+.hero h1{font-size:clamp(36px,5vw,56px);font-weight:900;color:#fff;line-height:1.1;margin-bottom:18px;letter-spacing:-.03em}
+.hero h1 span{color:var(--accent)}
+.hero-sub{font-size:16px;color:rgba(255,255,255,.72);line-height:1.65;margin-bottom:32px;max-width:440px}
+.hero-btns{display:flex;flex-direction:column;gap:10px;max-width:340px}
+.btn-hero-p{background:#fff;color:var(--dark);border:none;border-radius:var(--rp);padding:16px 28px;font-size:15px;font-weight:900;cursor:pointer;text-decoration:none;display:inline-block;text-align:center;box-shadow:0 8px 32px rgba(0,0,0,.25);transition:.2s;letter-spacing:-.01em}
+.btn-hero-p:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(0,0,0,.3)}
+.btn-hero-s{background:rgba(255,255,255,.1);color:#fff;border:1.5px solid rgba(255,255,255,.3);border-radius:var(--rp);padding:14px 28px;font-size:14px;font-weight:700;cursor:pointer;text-decoration:none;display:inline-block;text-align:center;backdrop-filter:blur(8px);transition:.2s}
+.btn-hero-s:hover{background:rgba(255,255,255,.18)}
+
+/* PHONE MOCKUP */
+.phone-wrap{display:flex;justify-content:center;align-items:center;position:relative}
+.phone{width:260px;height:520px;background:#f1f5f3;border-radius:40px;border:10px solid #1a1a1a;box-shadow:0 40px 80px rgba(0,0,0,.5),0 0 0 1px rgba(255,255,255,.1);overflow:hidden;position:relative;flex-shrink:0;text-align:left}
+.phone-notch{width:90px;height:26px;background:#1a1a1a;border-radius:0 0 18px 18px;margin:0 auto;position:absolute;top:0;left:50%;transform:translateX(-50%);z-index:2}
+.phone-header{background:linear-gradient(135deg,#00875A,#006644);padding:36px 12px 10px;display:flex;align-items:center;gap:8px}
+.phone-logo-text{font-size:13px;font-weight:900;color:#fff;letter-spacing:-.02em}
+.phone-logo-text span{opacity:.8;font-weight:500}
+.phone-bell{margin-left:auto;font-size:16px}
+.phone-body{padding:10px}
+.phone-greeting{font-size:12px;font-weight:800;color:#0A1628;margin-bottom:2px}
+.phone-date{font-size:9px;color:#6B7280;margin-bottom:10px}
+.phone-stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:5px;margin-bottom:10px}
+.phone-stat{background:#fff;border-radius:8px;padding:8px 4px;text-align:center;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.phone-stat-n{font-size:16px;font-weight:900;color:#00875A}
+.phone-stat-l{font-size:7px;color:#9CA3AF;font-weight:600}
+.phone-section-label{font-size:9px;font-weight:800;color:#6B7280;text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px}
+.phone-pac{background:#fff;border-radius:8px;padding:8px 10px;margin-bottom:5px;display:flex;align-items:center;gap:8px;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.phone-pac-border{width:3px;height:32px;border-radius:2px;flex-shrink:0}
+.phone-av{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;flex-shrink:0}
+.phone-pac-info{flex:1;min-width:0;text-align:left}
+.phone-pac-name{font-size:10px;font-weight:700;color:#0A1628;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.phone-pac-next{font-size:8px;color:#6B7280}
+.phone-badge{font-size:7px;font-weight:700;padding:2px 5px;border-radius:10px;white-space:nowrap;flex-shrink:0}
+.phone-nav{position:absolute;bottom:0;left:0;right:0;background:rgba(255,255,255,.95);border-top:1px solid rgba(0,0,0,.06);display:flex;padding:8px 0 12px}
+.phone-nb{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;font-size:7px;color:#9CA3AF;font-weight:500}
+.phone-nb.on{color:#00875A;font-weight:700}
+.phone-nb-icon{font-size:14px}
+
+/* STATS BAR */
+.stats-bar{background:#fff;border-bottom:1px solid #E5EAE7;padding:14px 24px}
+.stats-inner{max-width:1080px;margin:0 auto;display:flex;justify-content:center;flex-wrap:wrap;gap:8px 28px}
+.stat-item{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--sl2);font-weight:600}
+.stat-dot{width:6px;height:6px;border-radius:50%;background:var(--accent);flex-shrink:0}
+
+/* SECTIONS */
+section{padding:80px 24px}
+.section-inner{max-width:1080px;margin:0 auto}
+.eyebrow{font-size:11px;font-weight:800;color:var(--g1);text-transform:uppercase;letter-spacing:.14em;margin-bottom:12px}
+.section-title{font-size:clamp(28px,4vw,40px);font-weight:900;color:var(--sl);line-height:1.15;margin-bottom:16px;letter-spacing:-.02em}
+.section-title span{color:var(--g1)}
+.section-sub{font-size:16px;color:var(--sl3);line-height:1.65;max-width:560px}
+
+/* FEATURES */
+.features-bg{background:#fff}
+.features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:48px}
+.feature-card{background:var(--g4);border:1px solid var(--g3);border-radius:var(--r);padding:22px}
+.feature-icon{font-size:28px;margin-bottom:12px}
+.feature-title{font-size:15px;font-weight:800;color:var(--sl);margin-bottom:6px}
+.feature-desc{font-size:13px;color:var(--sl3);line-height:1.6}
+
+/* COMO FUNCIONA */
+.how-bg{background:var(--g3)}
+.how-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px;position:relative}
+.how-steps::before{content:'';position:absolute;top:36px;left:calc(16.6% + 36px);right:calc(16.6% + 36px);height:2px;background:linear-gradient(to right,var(--g1),var(--accent));border-radius:2px}
+.step{text-align:center}
+.step-num{width:72px;height:72px;border-radius:50%;background:var(--g1);color:#fff;font-size:26px;font-weight:900;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;box-shadow:0 8px 24px rgba(0,135,90,.3)}
+.step-title{font-size:16px;font-weight:800;color:var(--sl);margin-bottom:8px}
+.step-desc{font-size:13px;color:var(--sl3);line-height:1.6}
+
+/* PRICING */
+.pricing-bg{background:#fff}
+.pricing-wrap{display:flex;justify-content:center;margin-top:48px}
+.pricing-card{background:linear-gradient(145deg,var(--dark) 0%,#00512F 100%);border-radius:24px;padding:40px;width:100%;max-width:440px;text-align:center;box-shadow:0 24px 60px rgba(0,61,41,.35),0 0 0 1px rgba(255,255,255,.06)}
+.pricing-label{font-size:11px;font-weight:800;color:var(--accent);text-transform:uppercase;letter-spacing:.14em;margin-bottom:20px}
+.pricing-trial{display:inline-block;background:rgba(74,222,128,.15);border:1px solid rgba(74,222,128,.3);color:var(--accent);font-size:13px;font-weight:700;padding:6px 16px;border-radius:var(--rp);margin-bottom:20px}
+.pricing-price{font-size:58px;font-weight:900;color:#fff;letter-spacing:-.04em;line-height:1;margin-bottom:6px}
+.pricing-price span{font-size:20px;font-weight:500;color:rgba(255,255,255,.6);vertical-align:top;margin-top:12px;display:inline-block}
+.pricing-period{font-size:14px;color:rgba(255,255,255,.5);margin-bottom:28px}
+.pricing-features{text-align:left;margin-bottom:28px;display:flex;flex-direction:column;gap:10px}
+.pricing-feat{display:flex;align-items:center;gap:10px;font-size:14px;color:rgba(255,255,255,.85);font-weight:500}
+.pricing-feat::before{content:'✓';color:var(--accent);font-weight:900;flex-shrink:0}
+.btn-pricing{display:block;background:var(--accent);color:var(--dark);border:none;border-radius:var(--rp);padding:16px;font-size:15px;font-weight:900;cursor:pointer;text-decoration:none;transition:.2s;letter-spacing:-.01em}
+.btn-pricing:hover{background:#22c55e;transform:translateY(-2px);box-shadow:0 8px 24px rgba(74,222,128,.4)}
+.pricing-note{font-size:12px;color:rgba(255,255,255,.4);margin-top:14px}
+
+/* FAQ */
+.faq-bg{background:var(--g4)}
+.faq-list{margin-top:40px;display:flex;flex-direction:column;gap:10px;max-width:720px}
+.faq-item{background:#fff;border:1px solid var(--g3);border-radius:var(--r);overflow:hidden}
+.faq-item input{display:none}
+.faq-label{display:flex;align-items:center;justify-content:space-between;padding:18px 22px;cursor:pointer;font-size:15px;font-weight:700;color:var(--sl);user-select:none;gap:12px}
+.faq-label::after{content:'+';font-size:22px;font-weight:400;color:var(--g1);flex-shrink:0;transition:.2s}
+.faq-item input:checked~.faq-label::after{content:'−'}
+.faq-answer{max-height:0;overflow:hidden;transition:max-height .3s ease}
+.faq-item input:checked~.faq-answer{max-height:300px}
+.faq-answer-inner{padding:0 22px 18px;font-size:14px;color:var(--sl3);line-height:1.7}
+
+/* CTA FINAL */
+.cta-bg{background:linear-gradient(135deg,var(--dark) 0%,#00512F 100%);padding:80px 24px;text-align:center}
+.cta-title{font-size:clamp(28px,4vw,44px);font-weight:900;color:#fff;margin-bottom:12px;letter-spacing:-.02em}
+.cta-title span{color:var(--accent)}
+.cta-sub{font-size:16px;color:rgba(255,255,255,.65);margin-bottom:32px}
+.btn-cta{display:inline-block;background:#fff;color:var(--dark);border:none;border-radius:var(--rp);padding:18px 40px;font-size:16px;font-weight:900;cursor:pointer;text-decoration:none;box-shadow:0 8px 32px rgba(0,0,0,.25);transition:.2s;letter-spacing:-.01em}
+.btn-cta:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(0,0,0,.35)}
+
+/* FOOTER */
+footer{background:#001f14;padding:40px 24px}
+.footer-inner{max-width:1080px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:20px}
+.footer-logo{font-size:18px;font-weight:900;color:#fff;letter-spacing:-.02em}
+.footer-logo span{color:var(--accent)}
+.footer-links{display:flex;gap:20px;flex-wrap:wrap}
+.footer-link{font-size:13px;color:rgba(255,255,255,.5);text-decoration:none;transition:.2s}
+.footer-link:hover{color:rgba(255,255,255,.9)}
+.footer-copy{font-size:12px;color:rgba(255,255,255,.3);width:100%;text-align:center;margin-top:20px;padding-top:20px;border-top:1px solid rgba(255,255,255,.07)}
+
+/* RESPONSIVE */
+@media(max-width:860px){
+  .hero-inner{grid-template-columns:1fr;gap:40px;text-align:center}
+  .hero-sub{margin:0 auto 32px}
+  .hero-btns{margin:0 auto;align-items:center}
+  .phone-wrap{order:-1}
+  .features-grid{grid-template-columns:1fr 1fr}
+  .how-steps{grid-template-columns:1fr}
+  .how-steps::before{display:none}
+}
+@media(max-width:560px){
+  .features-grid{grid-template-columns:1fr}
+  .nav-links .nav-link{display:none}
+  section{padding:60px 20px}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-logo" style="display:flex;align-items:center;gap:10px"><img src="data:image/png;base64,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" style="height:38px;width:auto;filter:brightness(0) invert(1)" alt="FisioEvolução"/></a>
+    <div class="nav-links">
+      <a href="#funcionalidades" class="nav-link">Funcionalidades</a>
+      <a href="#preco" class="nav-link">Preço</a>
+      <a href="#faq" class="nav-link">FAQ</a>
+      <a href="https://hikki1009.github.io/fisioevolucao/" class="nav-link">Entrar</a>
+      <a href="https://hikki1009.github.io/fisioevolucao/" class="nav-cta">Experimentar grátis</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-badge">✨ 30 dias grátis · sem cartão de crédito</div>
+      <h1>Gestão clínica para <span>fisioterapeutas autônomos</span></h1>
+      <p class="hero-sub">Agenda, prontuário eletrônico, controle financeiro e relatórios — tudo num único app desenvolvido por fisioterapeuta para fisioterapeuta.</p>
+      <div class="hero-btns">
+        <a href="https://hikki1009.github.io/fisioevolucao/" class="btn-hero-p">🚀 Experimentar grátis por 30 dias</a>
+        <a href="https://hikki1009.github.io/fisioevolucao/" class="btn-hero-s">Já tenho conta → Entrar</a>
+      </div>
+    </div>
+    <div class="phone-wrap">
+      <div class="phone">
+        <div class="phone-notch"></div>
+        <div class="phone-header">
+          <img src="data:image/png;base64,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" style="height:28px;width:auto;filter:brightness(0) invert(1)" alt="FisioEvolução"/>
+          <div style="margin-left:auto"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></div>
+        </div>
+        <div class="phone-body">
+          <div class="phone-greeting">Bom dia, Dr. João! 👋</div>
+          <div class="phone-date">quarta-feira, 1 de julho de 2026</div>
+          <div class="phone-stats">
+            <div class="phone-stat"><div class="phone-stat-n" style="color:#00875A">10</div><div class="phone-stat-l">Hoje</div></div>
+            <div class="phone-stat"><div class="phone-stat-n" style="color:#059669;font-size:12px">R$890</div><div class="phone-stat-l">Recebido</div></div>
+            <div class="phone-stat"><div class="phone-stat-n" style="color:#E11D48">2</div><div class="phone-stat-l">Faltas</div></div>
+          </div>
+          <div class="phone-section-label">Pacientes</div>
+          <div class="phone-pac">
+            <div class="phone-pac-border" style="background:#00875A"></div>
+            <div class="phone-av" style="background:#E6FAF3;color:#00875A">MA</div>
+            <div class="phone-pac-info">
+              <div class="phone-pac-name">Maria Silva</div>
+              <div class="phone-pac-next">📅 Hoje 09:00</div>
+            </div>
+          </div>
+          <div class="phone-pac">
+            <div class="phone-pac-border" style="background:#E11D48"></div>
+            <div class="phone-av" style="background:#FFF1F2;color:#E11D48">JS</div>
+            <div class="phone-pac-info">
+              <div class="phone-pac-name">José Santos</div>
+              <div class="phone-pac-next">📅 Hoje 10:00</div>
+            </div>
+            <div class="phone-badge" style="background:#FFF1F2;color:#E11D48">2 sem evo</div>
+          </div>
+          <div class="phone-pac">
+            <div class="phone-pac-border" style="background:#D97706"></div>
+            <div class="phone-av" style="background:#FFFBEB;color:#D97706">GO</div>
+            <div class="phone-pac-info">
+              <div class="phone-pac-name">Geraldo Oliveira</div>
+              <div class="phone-pac-next">📅 Amanhã 13:00</div>
+            </div>
+            <div class="phone-badge" style="background:#FFFBEB;color:#D97706">R$90 pend.</div>
+          </div>
+        </div>
+        <div class="phone-nav">
+          <div class="phone-nb"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>Início</div>
+          <div class="phone-nb"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Agenda</div>
+          <div class="phone-nb on"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>Pacientes</div>
+          <div class="phone-nb"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>Evoluções</div>
+          <div class="phone-nb"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg>Mais</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat-item"><div class="stat-dot"></div>30 dias grátis</div>
+    <div class="stat-item"><div class="stat-dot"></div>R$14,90/mês após o período</div>
+    <div class="stat-item"><div class="stat-dot"></div>Sem cartão de crédito</div>
+    <div class="stat-item"><div class="stat-dot"></div>Cancele quando quiser</div>
+    <div class="stat-item"><div class="stat-dot"></div>Funciona no celular e computador</div>
+  </div>
+</div>
+
+<!-- FUNCIONALIDADES -->
+<section class="features-bg" id="funcionalidades">
+  <div class="section-inner">
+    <div class="eyebrow">Funcionalidades</div>
+    <h2 class="section-title">Tudo que você precisa<br><span>num único lugar</span></h2>
+    <p class="section-sub">Desenvolvido especificamente para fisioterapeutas autônomos que precisam gerenciar pacientes, agenda e financeiro sem complicação.</p>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">📅</div>
+        <div class="feature-title">Agenda inteligente</div>
+        <div class="feature-desc">Grade semanal visual com filtros por plano e tipo de atendimento. Crie sessões recorrentes, pacotes e receba alertas de feriados.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📝</div>
+        <div class="feature-title">Prontuário eletrônico</div>
+        <div class="feature-desc">Evoluções clínicas com dados vitais, escalas de avaliação (183 CIDs), anamnese completa alinhada ao COFFITO e histórico de progresso.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">💰</div>
+        <div class="feature-title">Controle financeiro</div>
+        <div class="feature-desc">Recebimentos por plano, alertas de pagamento pendente, pagamento em lote e exportação do relatório para declaração de Imposto de Renda.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">👥</div>
+        <div class="feature-title">Gestão de pacientes</div>
+        <div class="feature-desc">Cadastro completo com CID-10, histórico de sessões, escalas dinâmicas, plano de tratamento, metas e controle de pacotes de sessões.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📊</div>
+        <div class="feature-title">Relatórios em Excel</div>
+        <div class="feature-desc">Exporte financeiro, evoluções, faltas e cadastro de pacientes em planilha. Relatório de pacotes e envio direto por e-mail.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🔒</div>
+        <div class="feature-title">Seguro e privado</div>
+        <div class="feature-desc">Dados criptografados no Firebase (Google), acesso com senha, backup automático diário e conformidade com a LGPD.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMO FUNCIONA -->
+<section class="how-bg">
+  <div class="section-inner">
+    <div class="eyebrow">Como funciona</div>
+    <h2 class="section-title">Pronto em <span>3 minutos</span></h2>
+    <div class="how-steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-title">Crie sua conta</div>
+        <div class="step-desc">Cadastre-se com e-mail e senha. Preencha seu CREFITO e comece a usar imediatamente. Nenhum cartão necessário.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-title">Adicione seus pacientes</div>
+        <div class="step-desc">Cadastre seus pacientes com diagnóstico, CID-10 e plano de atendimento. Agende as sessões direto do perfil.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-title">Use no dia a dia</div>
+        <div class="step-desc">Registre evoluções, controle pagamentos e acompanhe relatórios. Tudo sincronizado entre seu celular e computador.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing-bg" id="preco">
+  <div class="section-inner" style="text-align:center">
+    <div class="eyebrow">Preço</div>
+    <h2 class="section-title">Simples e <span>acessível</span></h2>
+    <p class="section-sub" style="margin:0 auto">Um preço único. Sem planos confusos, sem cobranças surpresa.</p>
+    <div class="pricing-wrap">
+      <div class="pricing-card">
+        <div class="pricing-label">Plano completo</div>
+        <div class="pricing-trial">✨ 30 dias grátis para começar</div>
+        <div class="pricing-price"><span>R$</span>14,90</div>
+        <div class="pricing-period">por mês · após o período gratuito</div>
+        <div class="pricing-features">
+          <div class="pricing-feat">Agenda semanal ilimitada</div>
+          <div class="pricing-feat">Prontuário eletrônico completo</div>
+          <div class="pricing-feat">Controle financeiro e IR</div>
+          <div class="pricing-feat">Escalas de avaliação (COFFITO)</div>
+          <div class="pricing-feat">Relatórios exportáveis em Excel</div>
+          <div class="pricing-feat">Backup automático diário</div>
+          <div class="pricing-feat">Suporte via WhatsApp</div>
+        </div>
+        <a href="https://hikki1009.github.io/fisioevolucao/" class="btn-pricing">Começar 30 dias grátis →</a>
+        <div class="pricing-note">Sem cartão de crédito · Cancele quando quiser</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-bg" id="faq">
+  <div class="section-inner">
+    <div class="eyebrow">Perguntas frequentes</div>
+    <h2 class="section-title">Ficou com <span>dúvida?</span></h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <input type="checkbox" id="f1"/>
+        <label class="faq-label" for="f1">Preciso de cartão de crédito para experimentar?</label>
+        <div class="faq-answer"><div class="faq-answer-inner">Não. O período de 30 dias gratuitos não exige nenhum dado de pagamento. Você só é cobrado se decidir continuar após o trial.</div></div>
+      </div>
+      <div class="faq-item">
+        <input type="checkbox" id="f2"/>
+        <label class="faq-label" for="f2">O app funciona no celular e no computador?</label>
+        <div class="faq-answer"><div class="faq-answer-inner">Sim. O FisioEvolução é um aplicativo web que funciona em qualquer dispositivo com navegador — celular Android, iPhone, tablet ou computador. Os dados ficam sincronizados automaticamente entre todos os seus dispositivos.</div></div>
+      </div>
+      <div class="faq-item">
+        <input type="checkbox" id="f3"/>
+        <label class="faq-label" for="f3">Meus dados de pacientes ficam seguros?</label>
+        <div class="faq-answer"><div class="faq-answer-inner">Sim. Os dados são armazenados criptografados no Firebase (infraestrutura do Google), isolados por usuário. O FisioEvolução não compartilha dados com terceiros e está em conformidade com a LGPD (Lei Geral de Proteção de Dados).</div></div>
+      </div>
+      <div class="faq-item">
+        <input type="checkbox" id="f4"/>
+        <label class="faq-label" for="f4">Como funciona o cancelamento?</label>
+        <div class="faq-answer"><div class="faq-answer-inner">Você pode cancelar a qualquer momento entrando em contato pelo WhatsApp. Não há multa ou fidelidade mínima. Antes de cancelar, você pode exportar todos os seus dados em formato JSON ou Excel.</div></div>
+      </div>
+      <div class="faq-item">
+        <input type="checkbox" id="f5"/>
+        <label class="faq-label" for="f5">O app atende às exigências do COFFITO?</label>
+        <div class="faq-answer"><div class="faq-answer-inner">O FisioEvolução foi desenvolvido com base nas resoluções do COFFITO, incluindo os campos de anamnese, evolução clínica e Termo de Consentimento Livre e Esclarecido (TCLE). No entanto, a responsabilidade pelo cumprimento das normas profissionais é sempre do fisioterapeuta usuário.</div></div>
+      </div>
+      <div class="faq-item">
+        <input type="checkbox" id="f6"/>
+        <label class="faq-label" for="f6">Como renovo meu acesso após o trial?</label>
+        <div class="faq-answer"><div class="faq-answer-inner">Ao final dos 30 dias, entre em contato pelo WhatsApp para renovar. O pagamento é feito via PIX ou link de pagamento seguro. Após a confirmação, seu acesso é liberado imediatamente por mais 30 dias.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta-bg">
+  <div class="section-inner">
+    <h2 class="cta-title">Comece hoje.<br><span>30 dias grátis.</span></h2>
+    <p class="cta-sub">Sem cartão de crédito. Cancele quando quiser. Suporte pelo WhatsApp.</p>
+    <a href="https://hikki1009.github.io/fisioevolucao/" class="btn-cta">🚀 Criar minha conta gratuita</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo" style="display:flex;align-items:center;gap:8px"><img src="data:image/png;base64,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" style="height:34px;width:auto;filter:brightness(0) invert(1)" alt=""/></div>
+    <div class="footer-links">
+      <a href="#funcionalidades" class="footer-link">Funcionalidades</a>
+      <a href="#preco" class="footer-link">Preço</a>
+      <a href="#faq" class="footer-link">FAQ</a>
+      <a href="https://wa.me/5518996073154" class="footer-link">📱 WhatsApp</a>
+      <a href="mailto:fisioevolucao620@gmail.com" class="footer-link">✉️ E-mail</a>
+    </div>
+    <div class="footer-copy">© 2026 FisioEvolução · Desenvolvido por fisioterapeuta para fisioterapeutas · fisioevolucao620@gmail.com</div>
+  </div>
+</footer>
+
+</body>
+</html>
